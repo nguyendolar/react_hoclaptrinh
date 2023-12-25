@@ -8,53 +8,53 @@ const DetailCourse = () => {
     <div>
       <Header/>
       <main>
-      <section class="single-blog-wrap-layout1">
+      <section className="single-blog-wrap-layout1">
 
-    <section class="single-blog-wrap-layout2">
-        <div class="container">
-            <div class="single-blog-box-layout2">
-                <div class="blog-banner">
+    <section className="single-blog-wrap-layout2">
+        <div className="container">
+            <div className="single-blog-box-layout2">
+                <div className="blog-banner">
                     <img src="https://dotnetguru.org/wp-content/uploads/2023/06/tim-hieu-ngon-ngu-html.jpg" alt="blog" 
                     style={{ width: '100%', height: '450px' }}/>
                 </div>
-                <div class="single-blog-content">
-                    <div class="blog-entry-content">
-                        <ul class="entry-meta meta-color-dark">
+                <div className="single-blog-content">
+                    <div className="blog-entry-content">
+                        <ul className="entry-meta meta-color-dark">
 
-                            <li><i class="fas fa-tag"></i>Lập trình ứng dụng</li>
-                                <li><i class="fas fa-calendar-alt"></i>Có phí : 200.000 VNĐ</li>
-                            <li><i class="far fa-clock"></i>20 Videos</li>
+                            <li><i className="fas fa-tag"></i>Lập trình ứng dụng</li>
+                                <li><i className="fas fa-calendar-alt"></i>Có phí : 200.000 VNĐ</li>
+                            <li><i className="far fa-clock"></i>20 Videos</li>
                         </ul>
-                        <h2 class="item-title">Lập trình Android</h2>
+                        <h2 className="item-title">Lập trình Android</h2>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="container">
-        <div class="row gutters-50">
-            <div class="col-lg-8">
-                <div class="single-blog-box-layout1">
-                    <div class="blog-details">
+    <div className="container">
+        <div className="row gutters-50">
+            <div className="col-lg-8">
+                <div className="single-blog-box-layout1">
+                    <div className="blog-details">
                         Mô tả khóa học ở đây
                     </div>
 
                 </div>
             </div>
-            <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
-                <div class="widget">
-                    <div class="section-heading heading-dark">
-                        <h3 class="item-heading">Danh sách Video </h3>
+            <div className="col-lg-4 sidebar-widget-area sidebar-break-md">
+                <div className="widget">
+                    <div className="section-heading heading-dark">
+                        <h3 className="item-heading">Danh sách Video </h3>
                     </div>
-                        <div class="widget-latest">
-                            <ul class="block-list">
-                                    <li class="single-item">
-                                        <div class="item-img">
+                        <div className="widget-latest">
+                            <ul className="block-list">
+                                    <li className="single-item">
+                                        <div className="item-img">
                                             <Link to="/video"><img src="https://png.pngtree.com/png-vector/20230206/ourlarge/pngtree-video-player-3d-icon-png-image_6585971.png" alt="Post"
                                             style={{ width: '140px', height: '77px !important' }}/></Link>
                                         </div>
-                                        <div class="item-content">
-                                            <h4 class="item-title">
+                                        <div className="item-content">
+                                            <h4 className="item-title">
                                                 <Link to="/video">
                                                     Bài 1: Làm quen với android
                                                 </Link>
@@ -62,13 +62,13 @@ const DetailCourse = () => {
                                             </h4>
                                         </div>
                                     </li>
-                                    <li class="single-item">
-                                        <div class="item-img">
+                                    <li className="single-item">
+                                        <div className="item-img">
                                             <Link to="/video"><img src="https://png.pngtree.com/png-vector/20230206/ourlarge/pngtree-video-player-3d-icon-png-image_6585971.png" alt="Post"
                                             style={{ width: '140px', height: '77px !important' }}/></Link>
                                         </div>
-                                        <div class="item-content">
-                                            <h4 class="item-title">
+                                        <div className="item-content">
+                                            <h4 className="item-title">
                                                 <Link to="/video">
                                                     Bài 1: Làm quen với android
                                                 </Link>
@@ -76,13 +76,13 @@ const DetailCourse = () => {
                                             </h4>
                                         </div>
                                     </li>
-                                    <li class="single-item">
-                                        <div class="item-img">
+                                    <li className="single-item">
+                                        <div className="item-img">
                                             <Link to="/video"><img src="https://png.pngtree.com/png-vector/20230206/ourlarge/pngtree-video-player-3d-icon-png-image_6585971.png" alt="Post"
                                             style={{ width: '140px', height: '77px !important' }}/></Link>
                                         </div>
-                                        <div class="item-content">
-                                            <h4 class="item-title">
+                                        <div className="item-content">
+                                            <h4 className="item-title">
                                                 <Link to="/video">
                                                     Bài 1: Làm quen với android
                                                 </Link>
@@ -90,13 +90,13 @@ const DetailCourse = () => {
                                             </h4>
                                         </div>
                                     </li>
-                                    <li class="single-item">
-                                        <div class="item-img">
+                                    <li className="single-item">
+                                        <div className="item-img">
                                             <Link to="/video"><img src="https://png.pngtree.com/png-vector/20230206/ourlarge/pngtree-video-player-3d-icon-png-image_6585971.png" alt="Post"
                                             style={{ width: '140px', height: '77px !important' }}/></Link>
                                         </div>
-                                        <div class="item-content">
-                                            <h4 class="item-title">
+                                        <div className="item-content">
+                                            <h4 className="item-title">
                                                 <Link to="/video">
                                                     Bài 1: Làm quen với android
                                                 </Link>

@@ -1,6 +1,6 @@
 // src/App.js
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React,{useState} from 'react';
+import { Routes, Route,Navigate  } from 'react-router-dom';
 import Home from './pages/home';
 import Authen from './pages/authen';
 import News from './pages/news';
@@ -11,11 +11,17 @@ import Video from './pages/video';
 import Profile from './pages/profile';
 
 const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/authen" element={<Authen />} />
+        <Route path="/" element={<Home setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/authen"
+          element = { isAuthenticated ? (
+            <Navigate to="/" />
+          ) : (
+            <Authen setIsAuthenticated={setIsAuthenticated} />
+          )} />
         <Route path="/news" element={<News />} />
         <Route path="/detailnew" element={<DetailNew />} />
         <Route path="/courseall" element={<CourseAll />} />

@@ -9,27 +9,27 @@ const News = () => {
     <div>
       <Header />
       <main>
-      <section class="blog-wrap-layout9">
-    <div class="container">
-        <div class="section-heading-3">
+      <section className="blog-wrap-layout9">
+    <div className="container">
+        <div className="section-heading-3">
             <h2>Danh sách tin tức trong hệ thống </h2>
 
         </div>
-            <div class="row gutters-40 menu-list" id="no-equal-gallery">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 no-equal-item">
-                        <div class="blog-box-layout5">
-                            <div class="item-img">
+            <div className="row gutters-40 menu-list" id="no-equal-gallery">
+                    <div className="col-lg-4 col-md-6 col-sm-6 col-12 no-equal-item">
+                        <div className="blog-box-layout5">
+                            <div className="item-img">
                                 <Link to="/detailnew"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6MB5e369dNe_PTEsElaOD7B72I5cEQ1UvnA&usqp=CAU" alt="Blog" 
                                  style={{ width: '362px', height: '207px' }}/></Link>
-                                <Link to="/detailnew" class="hover-icon">
+                                <Link to="/detailnew" className="hover-icon">
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                 </Link>
                             </div>
-                            <div class="item-content">
+                            <div className="item-content">
                                
-                                <h3 class="item-title">
+                                <h3 className="item-title">
                                     <Link to="/detailnew">
                                         Tin tức hôm nay
                                     </Link>
@@ -37,20 +37,20 @@ const News = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 no-equal-item">
-                        <div class="blog-box-layout5">
-                            <div class="item-img">
+                    <div className="col-lg-4 col-md-6 col-sm-6 col-12 no-equal-item">
+                        <div className="blog-box-layout5">
+                            <div className="item-img">
                                 <Link to="/detailnew"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6MB5e369dNe_PTEsElaOD7B72I5cEQ1UvnA&usqp=CAU" alt="Blog" 
                                  style={{ width: '362px', height: '207px' }}/></Link>
-                                <Link to="/detailnew" class="hover-icon">
+                                <Link to="/detailnew" className="hover-icon">
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                 </Link>
                             </div>
-                            <div class="item-content">
+                            <div className="item-content">
                                
-                                <h3 class="item-title">
+                                <h3 className="item-title">
                                     <Link to="/detailnew">
                                         Tin tức hôm nay
                                     </Link>
@@ -58,20 +58,20 @@ const News = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 no-equal-item">
-                        <div class="blog-box-layout5">
-                            <div class="item-img">
+                    <div className="col-lg-4 col-md-6 col-sm-6 col-12 no-equal-item">
+                        <div className="blog-box-layout5">
+                            <div className="item-img">
                                 <Link to="/detailnew"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6MB5e369dNe_PTEsElaOD7B72I5cEQ1UvnA&usqp=CAU" alt="Blog" 
                                  style={{ width: '362px', height: '207px' }}/></Link>
-                                <Link to="/detailnew" class="hover-icon">
+                                <Link to="/detailnew" className="hover-icon">
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                 </Link>
                             </div>
-                            <div class="item-content">
+                            <div className="item-content">
                                
-                                <h3 class="item-title">
+                                <h3 className="item-title">
                                     <Link to="/detailnew">
                                         Tin tức hôm nay
                                     </Link>
@@ -80,10 +80,10 @@ const News = () => {
                         </div>
                     </div>
             </div>
-            <div class="pagination-layout1">
+            <div className="pagination-layout1">
                 <ul>
-                    <li class="active"><a href="">1</a></li>
-                    <li class="active"><a href="">2</a></li>
+                    <li className="active"><a href="">1</a></li>
+                    <li className="active"><a href="">2</a></li>
                 </ul>
             </div>
     </div>

@@ -1,7 +1,21 @@
 // Header.js
 import React from 'react';
-import {Link } from "react-router-dom";
+import {Link, useNavigate  } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 const Header = () => {
+  const [user, setUser] = React.useState(null);
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    let token = localStorage.getItem("token");
+    if(token != null){
+        const decoded = jwtDecode(token);
+        setUser(decoded?.sub);
+    }
+  },[])
+  const onLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/authen");
+  }
   return (
     <header class="has-mobile-menu">
           <div id="header-middlebar" class="pt--29 pb--29 bg--light border-bootom border-color-accent2">
@@ -76,12 +90,16 @@ const Header = () => {
                                   <li>
                                   <Link to="/news">Tin tức</Link>
                                   </li>
-                                  <li>
-                                      <Link to="/authen">Đăng ký / Đăng nhập</Link>
-                                  </li>
-                                  <li>
+                                  {user != null ?  <li>
                                       <Link to="/profile">Hồ sơ cá nhân</Link>
-                                  </li>
+                                      <ul class="dropdown-menu-col-1">
+                                            <li>
+                                                <a type="button" onClick={() => onLogout()}>Đăng xuất</a>
+                                            </li>
+                                      </ul>
+                                  </li> :<li>
+                                      <Link to="/authen">Đăng ký / Đăng nhập</Link>                                
+                                  </li> }                                                                 
                               </ul>
                           </nav>
                       </div>
