@@ -63,14 +63,14 @@ const DetailCourse = () => {
                             <div className="col-lg-4 sidebar-widget-area sidebar-break-md">
                                 <div className="widget">
                                     <div className="section-heading heading-dark">
-                                        <h3 className="item-heading">Danh sách Video </h3>
+                                        <h3 className="item-heading">Danh sách Video 1 </h3>
                                     </div>
                                     <div className="widget-latest">
                                         <ul className="block-list">
                                             {course?.courseVideos && course?.courseVideos?.map((item) => (
                                                 <li key={item.courseVideoId.toString()} className="single-item">
                                                     <div className="item-img">
-                                                        <Link to={item.videoUrl}><img src="https://png.pngtree.com/png-vector/20230206/ourlarge/pngtree-video-player-3d-icon-png-image_6585971.png" alt="Post"
+                                                        <Link to={`/video/${item.courseVideoId}/${course.courseId}`}><img src="https://png.pngtree.com/png-vector/20230206/ourlarge/pngtree-video-player-3d-icon-png-image_6585971.png" alt="Post"
                                                             style={{ width: '140px', height: '77px !important' }} /></Link>
                                                     </div>
                                                     <div className="item-content">

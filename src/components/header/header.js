@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getCourseType } from "../../services/courseType/courseType.service";
 import { jwtDecode } from "jwt-decode";
 const Header = () => {
-    const [user, setUser] = React.useState(null);
+    const [email, setEmail] = React.useState("");
     const [courseTypes, setCourseTypes] = React.useState([]);
     const navigate = useNavigate();
     React.useEffect(() => {
@@ -12,7 +12,8 @@ const Header = () => {
         if (token != null)
         {
             const decoded = jwtDecode(token);
-            setUser(decoded?.sub);
+            console.log(decoded?.sub)
+            setEmail(decoded?.sub);
         }
     }, [])
     React.useEffect(() => {
@@ -37,36 +38,36 @@ const Header = () => {
         navigate("/authen");
     }
     return (
-        <header class="has-mobile-menu">
-            <div id="header-middlebar" class="pt--29 pb--29 bg--light border-bootom border-color-accent2">
-                <div class="container">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-lg-4">
-                            <div class="header-action-items">
+        <header className="has-mobile-menu">
+            <div id="header-middlebar" className="pt--29 pb--29 bg--light border-bootom border-color-accent2">
+                <div className="container">
+                    <div className="row d-flex align-items-center">
+                        <div className="col-lg-4">
+                            <div className="header-action-items">
                                 <ul>
-                                    <li class="item-social-layout2"> <Link to="#"><i class="fab fa-facebook-f"></i></Link></li>
-                                    <li class="item-social-layout2"> <Link to="#"><i class="fab fa-twitter"></i></Link></li>
-                                    <li class="item-social-layout2"> <Link to="#"><i class="fab fa-instagram"></i></Link></li>
-                                    <li class="item-social-layout2"> <Link to="#"><i class="fab fa-youtube"></i></Link></li>
-                                    <li class="item-social-layout2"> <Link to="#"><i class="fas fa-rss"></i></Link></li>
-                                    <li class="item-social-layout2"> <Link to="#"><i class="fab fa-linkedin-in"></i></Link></li>
-                                    <li class="item-social-layout2"> <Link to="#"><i class="fab fa-google-plus-g"></i></Link></li>
+                                    <li className="item-social-layout2"> <Link to="#"><i className="fab fa-facebook-f"></i></Link></li>
+                                    <li className="item-social-layout2"> <Link to="#"><i className="fab fa-twitter"></i></Link></li>
+                                    <li className="item-social-layout2"> <Link to="#"><i className="fab fa-instagram"></i></Link></li>
+                                    <li className="item-social-layout2"> <Link to="#"><i className="fab fa-youtube"></i></Link></li>
+                                    <li className="item-social-layout2"> <Link to="#"><i className="fas fa-rss"></i></Link></li>
+                                    <li className="item-social-layout2"> <Link to="#"><i className="fab fa-linkedin-in"></i></Link></li>
+                                    <li className="item-social-layout2"> <Link to="#"><i className="fab fa-google-plus-g"></i></Link></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-4 d-flex justify-content-center">
-                            <div class="logo-area">
-                                <Link to="/" class="temp-logo" id="temp-logo">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPJZg-cxm8BON0iDBiVCSAa6vRk3JyZtEDbw&usqp=CAU" alt="logo" class="img-fluid" />
+                        <div className="col-lg-4 d-flex justify-content-center">
+                            <div className="logo-area">
+                                <Link to="/" className="temp-logo" id="temp-logo">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPJZg-cxm8BON0iDBiVCSAa6vRk3JyZtEDbw&usqp=CAU" alt="logo" className="img-fluid" />
                                 </Link>
                             </div>
                         </div>
-                        <div class="col-lg-4 d-flex justify-content-end">
-                            <div class="header-action-items">
+                        <div className="col-lg-4 d-flex justify-content-end">
+                            <div className="header-action-items">
                                 <ul>
-                                    <li class="header-search-box divider-style-border">
+                                    <li className="header-search-box divider-style-border">
                                         <Link to="#header-search" title="Search">
-                                            <i class="flaticon-magnifying-glass"></i>
+                                            <i className="flaticon-magnifying-glass"></i>
                                         </Link>
                                     </li>
                                 </ul>
@@ -76,18 +77,18 @@ const Header = () => {
                 </div>
             </div>
             <div id="rt-sticky-placeholder"></div>
-            <div id="header-menu" class="header-menu menu-layout1 bg--light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <nav id="dropdown" class="template-main-menu">
+            <div id="header-menu" className="header-menu menu-layout1 bg--light">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <nav id="dropdown" className="template-main-menu">
                                 <ul>
-                                    <li class="hide-on-mobile-menu">
+                                    <li className="hide-on-mobile-menu">
                                         <Link to="/">Trang chủ</Link>
                                     </li>
                                     <li>
                                         <Link to="/courseall">Danh mục khoá học</Link>
-                                        <ul class="dropdown-menu-col-1">
+                                        <ul className="dropdown-menu-col-1">
                                             {courseTypes && courseTypes.map((item) => (
                                                 <li key={item.courseTypeId}>
                                                     <Link to={`/course-by-type/${item.courseTypeId}/${item.typeName}`}>{item.typeName}</Link>
@@ -97,7 +98,7 @@ const Header = () => {
                                     </li>
                                     <li>
                                         <Link to="/courseall">Khoá học </Link>
-                                        <ul class="dropdown-menu-col-1">
+                                        <ul className="dropdown-menu-col-1">
                                             <li>
                                                 <Link to={`/course-by-isFree/1`}>Miễn phí </Link>
                                             </li>
@@ -109,9 +110,9 @@ const Header = () => {
                                     <li>
                                         <Link to="/news">Tin tức</Link>
                                     </li>
-                                    {user != null ? <li>
-                                        <Link to="/profile">Hồ sơ cá nhân</Link>
-                                        <ul class="dropdown-menu-col-1">
+                                    {email != "" ? <li>
+                                        <Link to={`/profile/${email}`}>Hồ sơ cá nhân</Link>
+                                        <ul className="dropdown-menu-col-1">
                                             <li>
                                                 <a type="button" onClick={() => onLogout()}>Đăng xuất</a>
                                             </li>

@@ -1,9 +1,29 @@
 // src/pages/Home.js
 import React from 'react';
-import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
+import Header from '../../components/header/header';
+import Footer from '../../components/footer/footer';
+import { Link, useParams } from "react-router-dom";
+import { getNewsDetail } from "../../services/news/news.service";
 
 const DetailNew = () => {
+    const [news, setNews] = React.useState(null);
+    const { id } = useParams();
+    React.useEffect(() => {
+        const fetchData = async () => {
+            try
+            {
+                const result = await getNewsDetail(id);
+                console.log("data", result)
+                // Cập nhật state với dữ liệu nhận được
+                setNews(result.data);
+            } catch (error)
+            {
+                console.error('Error fetching data:', error);
+            }
+        };
+        // Gọi hàm fetchData
+        fetchData();
+    }, [id])
   return (
     <div>
       <Header/>
@@ -18,7 +38,7 @@ const DetailNew = () => {
                 </div>
                 <div className="single-blog-content">
                     <div className="blog-entry-content">
-                        <h2 className="item-title">Tin tức về lập trình</h2>
+                        <h2 className="item-title">{news?.title}</h2>
                     </div>
                 </div>
             </div>
@@ -30,8 +50,7 @@ const DetailNew = () => {
                 <div className="single-blog-box-layout1">
                     <div className="blog-details">
                        {/* Nội dung */}
-                       Nội dung tin tức ở đây
-
+                      {news?.content}
 
     {/* Nội dung */}
                     </div>

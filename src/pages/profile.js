@@ -2,8 +2,41 @@
 import React from 'react';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
+import { Link, useParams } from "react-router-dom";
+import { getUserByEmail } from "../services/user/user.service.js"
+import { jwtDecode } from "jwt-decode";
 
 const Profile = () => {
+    const [user, setUser] = React.useState(null);
+    const { email } = useParams();
+    React.useEffect(() => {
+        let token = localStorage.getItem("token");
+        if (token != null)
+        {
+            const fetchData = async () => {
+                try
+                {
+                    const result = await getUserByEmail(email,token);
+                    console.log("data", result)
+                    // Cập nhật state với dữ liệu nhận được
+                    setUser(result.data);
+                } catch (error)
+                {
+                    console.error('Error fetching data:', error);
+                }
+            };
+            // Gọi hàm fetchData
+            fetchData();
+        }     
+    }, [email])
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setUser((prevUser) => ({
+          ...prevUser,
+          [name]: value,
+        }));
+      };
   return (
     <div>
       <Header />
@@ -24,16 +57,16 @@ const Profile = () => {
                             <input type="hidden" value="" name="UserId" />
                             <div className="row gutters-15">
                                 <div className="col-md-6 form-group">
-                                    <input type="text" value="Lê Văn An" className="form-control" name="FullName" required=""/>
+                                    <input type="text" value={user?.fullName || ''} onChange={(e) =>handleInputChange(e)} className="form-control" name="fullName" required=""/>
                                 </div>
                                 <div className="col-md-6 form-group">
-                                    <input type="text" value="039430873746" className="form-control" name="PhoneNumber" required=""/>
+                                    <input type="text" value={user?.phoneNumber} onChange={(e) =>handleInputChange(e)} className="form-control" name="phoneNumber" required=""/>
                                 </div>
                                 <div className="col-md-6 form-group">
-                                    <input type="email" value="levana@gmail.com" className="form-control" name="Email" readonly/>
+                                    <input type="email"  value={user?.email} onChange={(e) =>handleInputChange(e)} className="form-control" name="email" disabled/>
                                 </div>
                                 <div className="col-md-6 form-group">
-                                    <input type="text" value="Hà Nội" className="form-control" name="Address" required=""/>
+                                    <input type="text"  value={user?.address} onChange={(e) =>handleInputChange(e)} className="form-control" name="address" required=""/>
                                 </div>
                                 <div className="col-12 form-group">
                                     <button type="submit" className="item-btn">Cập nhật</button>
