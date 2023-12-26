@@ -1,12 +1,14 @@
 // src/App.js
-import React,{useState} from 'react';
-import { Routes, Route,Navigate  } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/home';
 import Authen from './pages/authen';
 import News from './pages/news';
-import CourseAll from './pages/courseall';
+import CourseAll from './pages/course/courseall';
+import CourseByType from './pages/course/courseByType'
+import CourseByIsFree from './pages/course/courseByIsFree'
 import DetailNew from './pages/detail-new';
-import DetailCourse from './pages/detail-course';
+import DetailCourse from './pages/course/detail-course';
 import Video from './pages/video';
 import Profile from './pages/profile';
 
@@ -17,7 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="/authen"
-          element = { isAuthenticated ? (
+          element={isAuthenticated ? (
             <Navigate to="/" />
           ) : (
             <Authen setIsAuthenticated={setIsAuthenticated} />
@@ -25,8 +27,10 @@ const App = () => {
         <Route path="/news" element={<News />} />
         <Route path="/detailnew" element={<DetailNew />} />
         <Route path="/courseall" element={<CourseAll />} />
-        <Route path="/detailcourse" element={<DetailCourse />} />
-        <Route path="/video" element={<Video />} />
+        <Route path="/course-by-type/:id/:name" element={<CourseByType />} />
+        <Route path="/course-by-isFree/:isFree" element={<CourseByIsFree />} />
+        <Route path="/detail-course/:id" element={<DetailCourse />} />
+        <Route path="/video/:id" element={<Video />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>

@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
-import { Route, withRouter,useNavigate} from "react-router-dom";
 import { postLogin, register } from '../services/authentication/authentication.service.js';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,57 +15,63 @@ const Authen = ({ setIsAuthenticated }) => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [address, setAddress] = useState("");
     const [gender, setGender] = useState("1");
-    const navigate = useNavigate();
     const onLogin = async () => {
-        if(email === '' || password === ''){
+        if (email === '' || password === '')
+        {
             toast.error("Cần điền đầy đủ thông tin");
-        }else{
+        } else
+        {
             const payload = {
                 email: email,
                 password: password
             }
             const data = await postLogin(payload);
-            if(data?.status == 200){
+            if (data?.status === 200)
+            {
                 localStorage.setItem("token", data?.data?.jwtToken);
                 toast.success("Đăng nhập thành công");
                 setIsAuthenticated(true);
-            }else{
+            } else
+            {
                 toast.error("Tài khoản mật khẩu không đúng");
             }
         }
     }
     const onRegister = async () => {
-        if(fullName === '' || passwordRe === '' || emailRe === '' || phoneNumber === '' || address === ''){
+        if (fullName === '' || passwordRe === '' || emailRe === '' || phoneNumber === '' || address === '')
+        {
             toast.error("Cần điền đầy đủ thông tin");
-        } else {
-            const payload = {
-                fullName: fullName,
-                email: emailRe,
-                password: passwordRe,
-                phoneNumber: phoneNumber,
-                address: address,
-                gender: gender,
-                status: 1
-            }
-            const data = await register(payload);
-            if(data?.status == 201){
-                toast.success("Đăng ký thành công");
-                setFullName("");
-                setEmailRe("");
-                setAddress("");
-                setPasswordRe("");
-                setPhoneNumber("");
-            }else{
-                toast.error("Email đã tồn tại");
-            }
-        }      
+            return;
+        }
+        const payload = {
+            fullName: fullName,
+            email: emailRe,
+            password: passwordRe,
+            phoneNumber: phoneNumber,
+            address: address,
+            gender: gender,
+            status: 1
+        }
+        const data = await register(payload);
+        if (data?.status !== 201)
+        {
+            toast.error("Email đã tồn tại");
+            return;
+        }
+        toast.success("Đăng ký thành công");
+        setFullName("");
+        setEmailRe("");
+        setAddress("");
+        setPasswordRe("");
+        setPhoneNumber("");
     }
     React.useEffect(() => {
-       let token = localStorage.getItem("token");
-       if(token != null){
-        setIsAuthenticated(true);
-       }
-    },[])
+        let token = localStorage.getItem("token");
+        if (token !== null)
+        {
+            setIsAuthenticated(false);
+        }
+    }, [])
     return (
         <div>
             <ToastContainer />

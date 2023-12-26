@@ -13,3 +13,37 @@ export const getCourse = async () => {
     }
 };
 
+export const getCourseByType = async (id) => {
+    try
+    {
+        const response = await axios.get(`${URL}/courses/category/${id}`);
+        return response;
+    } catch (error)
+    {
+        return error?.response;
+    }
+};
+
+export const getCourseByIsFree = async (isFree) => {
+    try
+    {
+        const response = await axios.get(`${URL}/courses/type/${isFree}`);
+        return response;
+    } catch (error)
+    {
+        return error?.response;
+    }
+};
+
+export const getCourseDetail = async (id) => {
+    try
+    {
+        const response = await axios.get(`${URL}/courses/${id}`);
+        return response;
+    } catch (error)
+    {
+        return error?.response;
+    }
+};
+
+
