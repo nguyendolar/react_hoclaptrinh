@@ -33,7 +33,7 @@ const DetailCourse = () => {
                         <div className="container">
                             <div className="single-blog-box-layout2">
                                 <div className="blog-banner">
-                                    <img src="https://dotnetguru.org/wp-content/uploads/2023/06/tim-hieu-ngon-ngu-html.jpg" alt="blog"
+                                    <img src={course?.image} alt="blog"
                                         style={{ width: '100%', height: '450px' }} />
                                 </div>
                                 <div className="single-blog-content">

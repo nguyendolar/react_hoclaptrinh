@@ -38,7 +38,7 @@ const CourseByIsFree = () => {
                                     <div className="blog-box-layout5">
                                         <div className="item-img">
                                             <Link to={`/detail-course/${course.courseId}`}>
-                                                <img src="https://lh5.googleusercontent.com/e5VMd5dCOtigrMRvOum7SONS6I5ESzD2rPwuCBfgR3uBVUyEIJ_M-E6n3EQBLMUmqKfy-rkYy_jKHXpuMJ57uD2vF5uS1mc2JtMQBVl4Io1tsAKLnT4fEhTHdDOpF_pqRrf8cJuR" alt="Blog"
+                                                <img src={course.image} alt="Blog"
                                                     style={{ width: '362px', height: '207px' }} />
                                             </Link>
                                             <Link to={`/detail-course/${course.courseId}`} className="hover-icon">

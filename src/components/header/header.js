@@ -12,6 +12,7 @@ const Header = () => {
         if (token != null)
         {
             const decoded = jwtDecode(token);
+            console.log("decode", decoded)
             console.log(decoded?.sub)
             setEmail(decoded?.sub);
         }
