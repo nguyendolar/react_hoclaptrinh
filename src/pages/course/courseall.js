@@ -58,8 +58,17 @@ const CourseAll = () => {
                                                 <Link to={`/detail-course/${course.courseId}`}>
                                                     {course.courseName}
                                                 </Link>
+                                               
+
                                             </h3>
+                                            {!course.free ?  <Link to={`/detail-course/${course.courseId}`} className="item-btn" style={{ display: 'inline-block', padding: '8px 15px', backgroundColor: '#3498db', color: '#ffffff', borderRadius: '5px', textDecoration: 'none', transition: 'background-color 0.3s ease' }}>
+                                        <i className="fa fa-cart-plus" style={{ marginRight: '5px' }}></i> Mua khóa học
+                                        </Link> :<Link to={`/detail-course/${course.courseId}`} className="item-btn" style={{ display: 'inline-block', padding: '8px 15px', backgroundColor: '#3498db', color: '#ffffff', borderRadius: '5px', textDecoration: 'none', transition: 'background-color 0.3s ease' }}>
+                                        <i className="fas fa-play" style={{ marginRight: '5px' }}></i> Xem miễn phí
+                                        </Link>}
+                                           
                                         </div>
+                                       
                                     </div>
                                 </div>
                             ))}
