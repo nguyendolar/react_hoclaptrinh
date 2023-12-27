@@ -33,14 +33,8 @@ const Video = () => {
       try
       {
         const result = await getCourseDetail(idCourse);
-        console.log("setCourse", result)
-        console.log("result.data?.courseVideos", result.data?.courseVideos)
-        console.log("courseVideo?.courseVideoId", courseVideo?.courseVideoId)
-        let abc = _.filter(result.data?.courseVideos, a => a.courseVideoId !== courseVideo?.courseVideoId);
-        console.log("abc", abc)
         // Cập nhật state với dữ liệu nhận được
-        result.data.courseVideos = abc;
-        console.log("abc", abc)
+        result.data.courseVideos = _.filter(result.data?.courseVideos, a => a.courseVideoId !== courseVideo?.courseVideoId);
         setCourse(result.data);
       } catch (error)
       {
