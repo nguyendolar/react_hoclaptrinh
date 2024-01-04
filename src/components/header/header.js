@@ -111,7 +111,7 @@ const Header = () => {
                                     <li>
                                         <Link to="/news">Tin tức</Link>
                                     </li>
-                                    {email != "" ? <li>
+                                    {email !== "" ? <li>
                                         <Link to={`/profile/${email}`}>Hồ sơ cá nhân</Link>
                                         <ul className="dropdown-menu-col-1">
                                             <li>

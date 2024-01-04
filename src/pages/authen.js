@@ -4,6 +4,7 @@ import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import { postLogin, register } from '../services/authentication/authentication.service.js';
 import { ToastContainer, toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 const Authen = ({ setIsAuthenticated }) => {
@@ -50,7 +51,7 @@ const Authen = ({ setIsAuthenticated }) => {
             phoneNumber: phoneNumber,
             address: address,
             gender: gender,
-            status: 1
+            status: 0
         }
         const data = await register(payload);
         if (data?.status !== 201)
@@ -135,7 +136,8 @@ const Authen = ({ setIsAuthenticated }) => {
                                                 <div className="col-3 form-group">
                                                 </div>
                                                 <div className="col-5 form-group">
-                                                    <a href="/Authentication/ForgotPassword" className="item-btn">Quên mật khẩu</a>
+                                                    <Link to="/forgot-password" className="item-btn">Quên mật khẩu</Link>
+                                                    {/* <a href="/" className="item-btn">Quên mật khẩu</a> */}
                                                 </div>
                                             </div>
                                             <div className="form-response"></div>

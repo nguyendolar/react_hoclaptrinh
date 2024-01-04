@@ -90,42 +90,42 @@ const Video = () => {
                   <div className="widget-latest">
                     <div className="row gutters-50">
                       {course?.courseVideos && course?.courseVideos.map((item) => (
-                       <div key={item.courseVideoId.toString()} className="col-lg-6" style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '20px' }}>
-                       <div className="item-img" style={{ marginRight: '15px', marginTop: '5px', position: 'relative', overflow: 'hidden' }}>
-                         <Link to={`/video/${item.courseVideoId}/${course.courseId}`}>
-                           <iframe width="100%" height="200" src={item?.videoUrl}
-                             title="YouTube video player" frameborder="0"
-                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                             allowfullscreen></iframe>
-                         </Link>
-                       </div>
-                       <div className="item-content" style={{ flex: 1 }}>
-                         <h4
-                           className="item-title"
-                           style={{
-                             fontWeight: 500,
-                             fontSize: '16px',
-                             lineHeight: 1.5,
-                             marginBottom: 0,
-                             color: '#111111',
-                             overflow: 'hidden',
-                             WebkitBoxOrient: 'vertical',
-                             WebkitLineClamp: 2,
-                             display: '-webkit-box',
-                           }}
-                         >
-                           <Link to={`/video/${item.courseVideoId}/${course.courseId}`} style={{ color: '#111111', textDecoration: 'none' }}>
-                             {item.videoName}
-                           </Link>
-                           <br />
-                           <Link to={`/video/${item.courseVideoId}/${course.courseId}`}  className="item-btn" style={{ display: 'inline-block', padding: '8px 15px', backgroundColor: '#3498db', color: '#ffffff', borderRadius: '5px', textDecoration: 'none', transition: 'background-color 0.3s ease' }}>
-                              <i className="fas fa-play" style={{ marginRight: '5px' }}></i> Xem Video
+                        <div key={item.courseVideoId.toString()} className="col-lg-6" style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '20px' }}>
+                          <div className="item-img" style={{ marginRight: '15px', marginTop: '5px', position: 'relative', overflow: 'hidden' }}>
+                            <Link to={`/video/${item.courseVideoId}/${course.courseId}`}>
+                              <iframe width="100%" height="200" src={item?.videoUrl}
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                             </Link>
+                          </div>
+                          <div className="item-content" style={{ flex: 1 }}>
+                            <h4
+                              className="item-title"
+                              style={{
+                                fontWeight: 500,
+                                fontSize: '16px',
+                                lineHeight: 1.5,
+                                marginBottom: 0,
+                                color: '#111111',
+                                overflow: 'hidden',
+                                WebkitBoxOrient: 'vertical',
+                                WebkitLineClamp: 2,
+                                display: '-webkit-box',
+                              }}
+                            >
+                              <Link to={`/video/${item.courseVideoId}/${course.courseId}`} style={{ color: '#111111', textDecoration: 'none' }}>
+                                {item.videoName}
+                              </Link>
+                              <br />
+                              <Link to={`/video/${item.courseVideoId}/${course.courseId}`} className="item-btn" style={{ display: 'inline-block', padding: '8px 15px', backgroundColor: '#3498db', color: '#ffffff', borderRadius: '5px', textDecoration: 'none', transition: 'background-color 0.3s ease' }}>
+                                <i className="fas fa-play" style={{ marginRight: '5px' }}></i> Xem Video
+                              </Link>
 
-                         </h4>
-                       </div>
-                     </div>
-                     
+                            </h4>
+                          </div>
+                        </div>
+
                       ))}
 
                     </div>

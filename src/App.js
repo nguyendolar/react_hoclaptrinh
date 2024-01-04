@@ -11,6 +11,9 @@ import DetailNew from './pages/news/detail-new';
 import DetailCourse from './pages/course/detail-course';
 import Video from './pages/video';
 import Profile from './pages/profile';
+import ForgotPassword from './pages/forgot-password';
+import Success from './pages/payment/success';
+import Error from './pages/payment/error';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,6 +27,8 @@ const App = () => {
           ) : (
             <Authen setIsAuthenticated={setIsAuthenticated} />
           )} />
+        <Route path="/forgot-password"
+          element={<ForgotPassword />} />
         <Route path="/news" element={<News />} />
         <Route path="/detailnew/:id" element={<DetailNew />} />
         <Route path="/courseall" element={<CourseAll />} />
@@ -32,6 +37,8 @@ const App = () => {
         <Route path="/detail-course/:id" element={<DetailCourse />} />
         <Route path="/video/:id/:idCourse" element={<Video />} />
         <Route path="/profile/:email" element={<Profile />} />
+        <Route path="/payment/success" element={<Success />} />
+        <Route path="/payment/error" element={<Error />} />
       </Routes>
     </div>
   );
