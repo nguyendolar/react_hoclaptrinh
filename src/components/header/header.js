@@ -63,7 +63,7 @@ const Header = () => {
                                 </Link>
                             </div>
                         </div>
-                        <div className="col-lg-4 d-flex justify-content-end">
+                        {/* <div className="col-lg-4 d-flex justify-content-end">
                             <div className="header-action-items">
                                 <ul>
                                     <li className="header-search-box divider-style-border">
@@ -73,7 +73,7 @@ const Header = () => {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

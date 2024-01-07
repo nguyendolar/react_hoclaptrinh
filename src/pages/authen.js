@@ -59,7 +59,7 @@ const Authen = ({ setIsAuthenticated }) => {
             toast.error("Email đã tồn tại");
             return;
         }
-        toast.success("Đăng ký thành công");
+        toast.success("Vui lòng kiểm tra mail để kích hoạt tài khoản");
         setFullName("");
         setEmailRe("");
         setAddress("");
