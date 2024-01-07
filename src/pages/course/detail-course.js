@@ -8,11 +8,17 @@ import { jwtDecode } from "jwt-decode";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createPayment } from "../../services/payment/payment.service";
+import _ from 'lodash';
 const DetailCourse = () => {
     const [course, setCourse] = React.useState(null);
+    const [check, setCheck] = React.useState(false);
+    const [email, setEmail] = React.useState("");
     const [stringDate, setStringDate] = React.useState("");
+    const [token, setToken] = React.useState(null);
     const { id } = useParams();
     React.useEffect(() => {
+        let token = localStorage.getItem("token");     
+        setToken(token);
         var ngayHienTai = new Date();
         // Lấy thông tin về ngày, tháng, năm, giờ, phút, giây
         var ngay = ngayHienTai.getDate();
@@ -30,6 +36,20 @@ const DetailCourse = () => {
                 console.log("data", result)
                 // Cập nhật state với dữ liệu nhận được
                 setCourse(result.data);
+                if(token != null){
+                    const decoded = jwtDecode(token);
+                    console.log("decode", decoded)
+                    console.log(decoded?.sub)
+                    setEmail(decoded?.sub);
+                    console.log("result?.data?.orders",result?.data?.orders,decoded?.sub)
+                    let abc = result?.data?.orders;
+                    for(let i = 0; i< abc.length ; i++){
+                        console.log("abc.user.email",abc[i].user.email)
+                        if(abc[i].user?.email === decoded?.sub){
+                            setCheck(true)
+                        }
+                    }
+                }
             } catch (error)
             {
                 console.error('Error fetching data:', error);
@@ -39,17 +59,13 @@ const DetailCourse = () => {
         fetchData();
     }, [id])
     const onSubmit = async (obj) => {
-        let token = localStorage.getItem("token");
         if (token != null)
         {
-            const decoded = jwtDecode(token);
-            console.log("decode", decoded)
-            console.log(decoded?.sub)
             const payload = {
                 "totalPrice": obj.price,
                 "userId": null,
                 "courseId": obj.courseId,
-                "email": decoded?.sub
+                "email": email
             }
             const data = await createPayment(payload);
             console.log("data", data?.data?.url)
@@ -75,12 +91,7 @@ const DetailCourse = () => {
                                 </div>
                                 <div className="single-blog-content">
                                     <div className="blog-entry-content">
-                                        <ul className="entry-meta meta-color-dark">
-
-                                            <li><i className="fas fa-tag"></i>{course?.courseType.typeName}</li>
-                                            <li><i className="fas fa-calendar-alt"></i>{course?.free ? 'Miễn phí' : 'Có phí :' + course?.price + ' VNĐ'}  </li>
-                                            <li><i className="far fa-clock"></i>{course?.courseVideos.length} Videos</li>
-                                        </ul>
+                                       
                                         <h2 className="item-title">{course?.courseName}</h2>
                                         <div className="single-blog-content">
                                             <div className="blog-entry-content">
@@ -91,7 +102,8 @@ const DetailCourse = () => {
                                                 </ul>
                                                 <h2 className="item-title">{course?.courseName}</h2>
                                             </div>
-                                        </div>
+                                           {check ?<b style={{color:'green'}}>Đã mua</b> : null} 
+                                        </div>                                     
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +121,7 @@ const DetailCourse = () => {
                             </div>
                             <div className="col-lg-4 sidebar-widget-area sidebar-break-md">
                                 {
-                                    course?.free ? <div className="widget">
+                                    course?.free || check ? <div className="widget">
                                         <div className="section-heading heading-dark">
                                             <h3 className="item-heading">Danh sách Video</h3>
                                         </div>

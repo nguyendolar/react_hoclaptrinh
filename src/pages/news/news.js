@@ -39,7 +39,7 @@ const News = () => {
                                 <div key={item.newsId} className="col-lg-4 col-md-6 col-sm-6 col-12 no-equal-item">
                                     <div className="blog-box-layout5">
                                         <div className="item-img">
-                                            <Link to={`/detailnew/${item.newsId}`}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6MB5e369dNe_PTEsElaOD7B72I5cEQ1UvnA&usqp=CAU" alt="Blog"
+                                            <Link to={`/detailnew/${item.newsId}`}><img src={item.image} alt="Blog"
                                                 style={{ width: '362px', height: '207px' }} /></Link>
                                             <Link to={`/detailnew/${item.newsId}`} className="hover-icon">
                                                 <span></span>

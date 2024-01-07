@@ -14,3 +14,15 @@ export const createPayment = async (payload) => {
 };
 
 
+export const executePayment = async (payload) => {
+    try
+    {
+        const response = await axios.post(`${URL}/success`,payload);
+        return response;
+    } catch (error)
+    {
+        return error?.response;
+    }
+};
+
+

@@ -14,6 +14,7 @@ import Profile from './pages/profile';
 import ForgotPassword from './pages/forgot-password';
 import Success from './pages/payment/success';
 import Error from './pages/payment/error';
+import CourseByUser from './pages/order/courseByUser';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -33,12 +34,13 @@ const App = () => {
         <Route path="/detailnew/:id" element={<DetailNew />} />
         <Route path="/courseall" element={<CourseAll />} />
         <Route path="/course-by-type/:id/:name" element={<CourseByType />} />
+        <Route path="/course-by-user/:email" element={<CourseByUser />} />
         <Route path="/course-by-isFree/:isFree" element={<CourseByIsFree />} />
         <Route path="/detail-course/:id" element={<DetailCourse />} />
         <Route path="/video/:id/:idCourse" element={<Video />} />
         <Route path="/profile/:email" element={<Profile />} />
-        <Route path="/payment/success" element={<Success />} />
-        <Route path="/payment/error" element={<Error />} />
+        <Route path="/payment-success" element={<Success />} />
+        <Route path="/payment-cancel" element={<Error />} />
       </Routes>
     </div>
   );

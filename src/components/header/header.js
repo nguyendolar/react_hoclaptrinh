@@ -115,6 +115,9 @@ const Header = () => {
                                         <Link to={`/profile/${email}`}>Hồ sơ cá nhân</Link>
                                         <ul className="dropdown-menu-col-1">
                                             <li>
+                                                <Link to={`/course-by-user/${email}`}>Xem khóa học đã mua</Link>
+                                            </li>
+                                            <li>
                                                 <a type="button" onClick={() => onLogout()}>Đăng xuất</a>
                                             </li>
                                         </ul>
